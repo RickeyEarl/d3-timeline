@@ -93,6 +93,7 @@
       g.each(function(d, i) {
         d.forEach( function(datum, index){
           var data = datum.times;
+		  console.log(data);
           var hasLabel = (typeof(datum.label) != "undefined");
 
           g.selectAll("svg").data(data).enter()
@@ -106,6 +107,7 @@
             .attr("cx", getXPos)
             .attr("r", itemHeight/2)
             .attr("height", itemHeight)
+			.attr("id",function(d){return d.id})
             .style("fill", colorCycle(index))
             .on("mousemove", function (d, i) {
               hover(d, index, datum);
